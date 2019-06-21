@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import Header from './components/Header';
+import ListaNoticias from './components/ListaNoticias';
 
 class App extends Component {
   state = { 
@@ -7,10 +9,10 @@ class App extends Component {
 
   //lamado a una api
   componentDidMount() {
-    this.consultatNoticias();
+    this.consultarNoticias();
   }
 
-  consultatNoticias = async () => {
+  consultarNoticias = async () => {
     const url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=02d3cc1b32af4340b40d7c534df7e856`
     
     const respuesta = await fetch(url);
@@ -22,7 +24,19 @@ class App extends Component {
   }
   
   render() { 
-    return ( <h1>hola</h1> );
+    return (
+      <Fragment>
+          <Header 
+            titulo='Noticias con React API'
+          />
+
+          <div className="container white contenedor-noticias">
+            <ListaNoticias
+              noticias={this.state.noticias}
+            />
+          </div>
+      </Fragment>
+     );
   }
 }
  
