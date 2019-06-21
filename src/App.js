@@ -13,7 +13,7 @@ class App extends Component {
   }
 
   consultarNoticias = async () => {
-    const url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=02d3cc1b32af4340b40d7c534df7e856`
+    const url = `https://newsapi.org/v2/top-headlines?country=ar&category=business&apiKey=02d3cc1b32af4340b40d7c534df7e856`
     
     const respuesta = await fetch(url);
     const noticias = await respuesta.json();
@@ -27,7 +27,7 @@ class App extends Component {
     return (
       <Fragment>
           <Header 
-            titulo='Noticias con React API'
+            titulo='Noticias React API'
           />
 
           <div className="container white contenedor-noticias">
